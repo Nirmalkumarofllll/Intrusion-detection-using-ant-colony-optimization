@@ -10,21 +10,9 @@ import subprocess
 
 global n
 n=0
-# AntColony class definition and submit_number function remain unchanged
 class AntColony:
     # Include the AntColony class code here
     def _init_(self, distances, n_ants, n_best, n_iterations, decay, alpha=1, beta=1):
-        """
-        Args:
-        distances (2D numpy.array): Square matrix of distances. Diagonal is assumed to be np.inf.
-        n_ants (int): Number of ants running per iteration
-        n_best (int): Number of best ants who deposit pheromone
-        n_iteration (int): Number of iterations
-        decay (float): Rate it which pheromone decays. The pheromone value is multiplied by decay,
-                        so 0.95 will lead to decay, 0.5 to much faster decay.
-        alpha (int or float): exponenet on pheromone, higher alpha gives pheromone more weight.
-        beta (int or float): exponent on distance, higher beta give distance more weight.
-        """
         self.distances  = distances
         self.pheromone = np.ones(self.distances.shape) / len(distances)
         self.all_inds = range(len(distances))
