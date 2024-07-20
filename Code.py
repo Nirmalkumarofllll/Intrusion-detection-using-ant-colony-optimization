@@ -11,7 +11,7 @@ import subprocess
 global n
 n=0
 class AntColony:
-    # Include the AntColony class code here
+    
     def _init_(self, distances, n_ants, n_best, n_iterations, decay, alpha=1, beta=1):
         self.distances  = distances
         self.pheromone = np.ones(self.distances.shape) / len(distances)
@@ -64,7 +64,7 @@ class AntColony:
             path.append((prev, move))
             prev = move
             visited.add(move)
-        path.append((prev, start)) # going back to where we started
+        path.append((prev, start)) 
         return path
 
     def pick_move(self, pheromone, dist, visited):
@@ -74,13 +74,9 @@ class AntColony:
         row = pheromone * self.alpha * (( 1.0 / dist) * self.beta)
 
         norm_row = row / row.sum()
-        move = np.random.choice(self.all_inds, 1, p=norm_row)[0] # Corrected this line
+        move = np.random.choice(self.all_inds, 1, p=norm_row)[0]
         return move
 
-
-
-    # Include the AntColony class code here
-    # AntColony class code remains the same
 
 def upload_file():
     file_path = filedialog.askopenfilename()
@@ -145,7 +141,7 @@ def perform_scan():
     result_text.delete(1.0, tk.END)
     scan_animation_label.config(text="Scanning...", fg="red")
     root.update()
-    time.sleep(3)  # Simulate scanning process
+    time.sleep(3)  
     scan_animation_label.config(text="File Scanned", fg="limegreen")
 
     # Display scan results
